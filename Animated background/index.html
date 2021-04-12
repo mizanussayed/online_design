@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Animated Squre like star</title>
+<style>
+	*{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	body{
+		height: 100vh;
+		background: #000;
+		overflow: hidden;
+	}
+	section{
+		height: 100vh;
+	}
+	span {
+		position: absolute;
+		pointer-events: none;
+		background: #fff;
+		animation: animate 5s linear infinite;
+	}
+	@keyframes animate {
+		0%{
+			transform: scale(0) translateY(0) rotate(0deg);
+			opacity: 0;
+		}
+		10% , 90%{
+			opacity: 1;
+		}
+			100%{
+			transform: scale(1) translateY(-500%) rotate(360deg);
+			opacity: 0;
+		}
+
+	}
+
+</style>
+</head>
+<body>
+	<section></section>
+<script>
+	const color= ['#e91e63',
+				   '#ffebe3b',
+				   '#74ff1d',
+				   '#2196f3'
+					 ]
+	function createSqure(){
+		const section = document.querySelector("section");
+		const squre = document.createElement("span");
+		var size = Math.random() * 50;
+		squre.style.width = 20 + size + "px";
+		squre.style.height = 20 + size + "px";
+		//squre.style.borderRadius= 50 + "%";
+
+		squre.style.top = Math.random() * innerHeight + "px";
+		squre.style.left = Math.random() * innerWidth + "px";
+
+		const bg = color[Math.floor(Math.random()* color.length)];
+		squre.style.background = bg;
+		section.appendChild(squre);
+		setTimeout(() =>{
+			squre.remove()
+		}, 5000)
+
+	}
+	setInterval(createSqure, 5);
+</script>
+</body>
+</html>

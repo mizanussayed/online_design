@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>404 page</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			font-family: consolas;
+		}
+		.error{
+			min-height: 100vh;
+			background:linear-gradient(0deg, #fff, #03a9f4);
+		}
+		.sky{
+			position: relative;
+			width: 100%;
+			height: 60vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.sky h2 {
+			font-size: 16em;
+			color: #fff;
+			text-shadow: 15px 15px 0 rgba(0,0,0,0.1);
+			z-index: 1;
+		}
+		.sky h2 span{
+			display: inline-block;
+			animation: animate 2s ease-in-out infinite;
+		}
+		.sky h2 span:nth-child(even){
+			animation-delay: -1s;
+		}
+		@keyframes animate {
+			0%, 100%{
+				transform: translateY(-50%);
+			}
+			50%{
+				transform: translateY(50%);
+			}
+		}
+		.field{
+			padding: 100px;
+			height: 40vh;
+			background: #6e2308;
+			text-align: center;
+			box-shadow: inset 0 20px 10px #51680c;
+		}
+		.field h2{
+			color: #fff;
+			font-size: 2em;
+			margin-bottom: 20px;
+		}
+		.field a{
+			background: #fff;
+			color: #000;
+			height: 50px;
+			width: 160px;
+			border-radius: 50px;
+			text-decoration: none;
+			font-style: 20px;
+			display: inline-block;
+			line-height: 50px;
+		}
+		.plane{
+			position: absolute;
+			left: 100px;
+			max-width: 300px;
+			transform: scaleX(-1);
+
+		}
+		.grass{
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 20px;
+			background: url(grass.png);
+			background-position: bottom;
+			animation: animateGrass .2s linear infinite;
+		}
+		@keyframes animateGrass {
+			0%{
+background-position: 0 0;
+			}
+			0%{
+background-position: -98px 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="error">
+		<div class="sky">
+			<h2><span>4</span><span>0</span><span>4</span></h2>
+			<div class="grass"></div>
+			<img src="plane.png" class="plane" >
+		</div>
+		<div class="field">
+			<h2>Opps... looks like you got lost.</h2>
+			<a href="#"> Go Home</a>
+		</div>
+	</div>
+</body>
+</html>

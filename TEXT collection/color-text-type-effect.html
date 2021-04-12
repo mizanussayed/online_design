@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Color text Typing effect</title>
+	<link rel="stylesheet" href="">
+</head>
+<style>
+	body{
+		margin: 0;
+		padding: 0;
+		background: #000;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+	}
+	h1{
+		position: relative;
+		text-transform: uppercase;
+		font-family: serif;
+		letter-spacing: .1em;
+		padding: 0;
+		margin: 0;
+		font-size: 5em;
+		white-space: nowrap;
+		
+
+	}
+	h1:before{
+		position: absolute;
+		content: attr(data-text);
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-right: 1px solid #fff;
+		overflow: hidden;
+		white-space: nowrap;
+		background: linear-gradient(to right, #f00,#ff0,#0f0,#ffc800);
+		-webkit-background-clip: text;
+		color: transparent;
+		animation: type 10s infinite steps(19);
+		filter: blur(1px);
+	
+	}h1:after{
+		position: absolute;
+		content: attr(data-text);
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		border-right: 1px solid #fff;
+		overflow: hidden;
+		white-space: nowrap;
+		background: linear-gradient(to right, #f00,#ff0,#0f0,#ffc800);
+		-webkit-background-clip: text;
+		color: transparent;
+		animation: type 6s infinite steps(19);
+		filter: blur(50px);
+	
+	}
+	@keyframes type {
+		0%{
+			width: 0;
+		}
+		50%{
+			width:100%;
+		}
+		100%{
+			width: 0;
+		}
+	}
+</style>
+<body>
+	<h1 data-text="hi this is m rahman">hi this is m rahman</h1>
+</body>
+</html>

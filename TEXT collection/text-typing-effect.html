@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Text typing Effect</title>
+</head>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		outline: none;
+		text-decoration: none;
+	}
+	body{
+		height: 100vh;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color:orange;
+	}
+	h1{
+		width: 0ch; 
+		overflow: hidden;
+		white-space: nowrap;
+		border-right: 3px solid black;
+		font-size: 60px;
+		animation: text 10s steps(27) infinite alternate;
+
+	}
+	@keyframes text {
+		0%{
+			width:0ch;
+		}
+		50%{
+			width:25ch;
+		}
+	}
+</style>
+<body>
+	<h1>Hellow I am Web Developer .</h1>
+
+
+</body>
+</html>

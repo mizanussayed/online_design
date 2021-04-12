@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Flip Background Hover effect</title>
+	<style>
+		body{
+			margin: 0;
+			padding: 0;
+		}
+		.container{
+			widows: 100%;
+			height: 100vh;
+			overflow: hidden;
+			background: #000;
+
+		}
+		.container div{
+			position: relative;
+			display: block;
+			float: left;
+			width: 20%;
+			height: 20vh;
+			background: #000;
+		}
+		.container div:before{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			padding: 1px;
+			background: url(bg1.jpg);
+			background-attachment: fixed;
+			background-size: cover;
+			transform-origin: top;
+			transform-style: preserve-3d;
+			transform: perspective(1000px) rotateX(0deg) translateY(0);
+			transition: .5s linear;
+
+		}
+		.container div.flip:before{
+			transform: perspective(1000px) rotateX(90deg) translateY(-50%);
+		}
+		.container div:after{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			padding: 1px;
+			background: url(bg.jpg);
+			-webkit-background-size: cover;
+			background-size: cover;
+			background-attachment: fixed;
+			transform-origin: bottom;
+			transform-style: preserve-3d;
+			transform: perspective(1000px) rotateX(-90deg) translateY(50%);
+			transition: .5s linear;
+
+		}
+		.container div.flip:after{
+			transform: perspective(1000px) rotateX(0deg) translateY(0);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		
+
+	</div>
+	<script src="jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(".container div").mouseover(function(){
+				$(this).addClass('flip');
+			})
+		})
+	</script>
+</body>
+</html>

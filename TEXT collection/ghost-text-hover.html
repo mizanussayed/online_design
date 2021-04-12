@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Ghost text hover Effects</title>
+	<style>
+		body{
+			padding: 0;
+			margin: 0;
+			font-family: verdana;
+			display: flex;
+			justify-content: center;
+			-ms-align-items: center;
+			align-items: center;
+			height: 100vh;
+			background: #262626;
+		}
+		ul{
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-direction: row-reverse;	
+		}
+		li{
+			list-style: none;
+			color: #fff;
+			font-size: 6em;
+			font-weight: bold;
+			letter-spacing: 10px;
+			transition: 4s;
+			filter: blur(1px);
+		}
+		ul li:hover,
+		ul li:hover ~ li
+		
+		{
+			transform: rotate(180deg) translateY(-200px);
+			transition: 2s;
+			filter: blur(20px);
+			opacity: 0;
+		}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>M</li>
+		<li>.</li>
+		<li>R</li>
+		<li>A</li>
+		<li>H</li>
+		<li>M</li>
+		<li>A</li>
+		<li>N</li>
+		<li></li>
+		<li>.</li>
+	</ul>
+</body>
+</html>

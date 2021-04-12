@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Water Ripper Background</title>
+	<style>
+
+		*{
+			padding: 0;
+			margin: 0;
+		}
+		html{
+			height: 100%;
+		}
+		body{
+			width: 100%;
+			min-height: 100vh;
+			background: url('img.jpg');
+			background-size: cover;
+		}
+		body:before{
+			content: '';
+			position: absolute;
+			display: inline-block;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			vertical-align: middle;
+		}
+		div{
+			width: 400px;
+			height: 400px;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="jquery.ripples.js"></script>
+<script>
+$(document).ready(function() {
+	try {
+		$('body').ripples({
+			resolution: 512,
+			dropRadius: 20, //px
+			perturbance: 0.04
+		});
+		$('main').ripples({
+			resolution: 128,
+			dropRadius: 10, //px
+			perturbance: 0.04,
+			interactive: false
+		});
+	}
+	catch (e) {
+		$('.error').show().text(e);
+	}
+
+	$('.js-ripples-disable').on('click', function() {
+		$('body, main').ripples('destroy');
+		$(this).hide();
+	});
+
+	// Automatic drops
+	setInterval(function() {
+		var $el = $('main');
+		var x = Math.random() * $el.outerWidth(20);
+		var y = Math.random() * $el.outerHeight();
+		var dropRadius = 20;
+		var strength = 0.04 + Math.random() * 0.04;
+
+		$el.ripples('drop', x, y, dropRadius, strength);
+	}, 400);
+});
+</script>
+</body>
+</html>

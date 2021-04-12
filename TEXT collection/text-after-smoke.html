@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>smoke text</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			font-family: consolas;
+		}
+		section{
+			min-height: 100vh;
+			background: #000;
+			
+		}
+		section:before{
+			content: '';
+			position: absolute;
+			margin-left: 20px;
+			top: 0;
+			left: 0;
+			width: 100%;
+			min-height: 100vh;
+			background:linear-gradient(to right, #f00 ,#0f0,#0ff, #ff0 );
+			mix-blend-mode: color;
+			pointer-events: none;
+		}
+		video{
+			object-fit: cover;
+		}
+		h1{
+			padding: 0;
+			margin: 0;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			width: 100%;
+			text-align: center;
+			color: #ddd;
+			font-size: 5em;
+			letter-spacing: .2em;
+			font-family: sans-serif;
+		}
+		h1 span{
+			display: inline-block;
+			text-transform: uppercase;
+			opacity: 0;
+			animation: animate 1s linear forwards;
+			
+		}
+		@keyframes animate{
+			0%{
+				transform: rotateY(90deg);
+				opacity: 0;
+				filter: blur(10px);
+			}
+			100%{opacity: 1;
+				transform: rotateY(0deg); 
+				filter: blur(0);
+			}
+
+		}
+		h1 span:nth-child(1){
+			animation-delay: 1s;
+		}
+			h1 span:nth-child(2){
+			animation-delay: 2s;
+		}
+			h1 span:nth-child(3){
+			animation-delay: 2.5s;
+		}
+			h1 span:nth-child(4){
+			animation-delay: 3s;
+		}
+			h1 span:nth-child(5){
+			animation-delay: 3.5s;
+		}
+			h1 span:nth-child(6){
+			animation-delay: 3.75s;
+		}
+			h1 span:nth-child(7){
+			animation-delay: 4s;
+		}
+			h1 span:nth-child(8){
+			animation-delay: 4.2s;
+		}
+			h1 span:nth-child(9){
+			animation-delay: 4.5s;
+		}
+			h1 span:nth-child(10){
+			animation-delay: 4.7s;
+		}
+
+	</style>
+</head>
+<body>
+	<section>
+		<video src="smoke.mp4" autoplay muted ></video>
+		<h1 class="wavy">
+		<span style="--i:1;">L</span>
+		<span style="--i:2;">o</span>
+		<span style="--i:3;">a</span>
+		<span style="--i:4;">d</span>
+		<span style="--i:5;">i</span>
+		<span style="--i:6;">n</span>
+		<span style="--i:7;">g</span>
+		<span style="--i:8;">p</span>
+		<span style="--i:9;">l</span>
+		<span style="--i:10;">s</span>
+	</h1>
+	</section>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Fling Rocket</title>
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		.sence{
+			position: relative;
+			width: 100%;
+			height: 100vh;
+			background: #01070a;
+			overflow: hidden;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.sence i {
+			position: absolute;
+			top: -250px;
+			background: rgba(255, 255, 255, 0.5);
+			animation: animateTag linear infinite;
+		}
+		@keyframes animateTag{
+			0%{
+				transform: translateY(0);
+			}
+			100%{
+				transform: translateY(150vh);
+			}
+		}
+		.sence .rocket{
+			position: absolute;
+			pointer-events: none;
+			animation: animate .2s ease infinite;
+			transition: .2%;
+		}
+		@keyframes animate {
+			0% ,100% {
+				transform: translateY(-2px) /*translateX(-2px)*/;
+			}
+			50% {
+				transform: translateY(2px) /*translateX(-50%) */;
+			}
+
+		}
+		.sence .rocket:before {
+			content: '';
+			position: absolute;
+			bottom:-200px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 10px;
+			height: 200px;
+			background: linear-gradient(#00d0ff, transparent);
+		}
+		.sence .rocket:after {
+			content: '';
+			position: absolute;
+			bottom:-200px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 10px;
+			height: 200px;
+			background: linear-gradient(#00d0ff, transparent);
+			filter: blur(20px);
+		}
+
+		.sence:active .rocket::before, 
+		.sence:active .rocket::after{
+			background: linear-gradient(#ff12d7, transparent);
+			bottom: -300px;
+			height: 300px;
+			filter: blur(2px);
+		}
+	</style>
+</head>
+<body>
+	<div class="sence">
+		<div class="rocket">
+			<img src="rocket.png" alt="">
+		</div>
+
+		<script>
+			document.addEventListener("mousemove" , function(e){
+				var rocket = document.querySelector('.rocket');
+				rocket.style.left= e.offsetX + 'px';
+				rocket.style.top= e.offsetY + 'px';
+
+
+			})
+			function stars(){
+				let count = 50;
+				let sence = document.querySelector('.sence');
+				let i =0;
+				while (i <count){
+					let star = document.createElement('i');
+					let x = Math.floor(Math.random()* window.innerWidth);
+
+					let duration = Math.random()* 1;
+					let h = Math.random()* 100;
+
+					star.style.left = x +'px';
+					star.style.width = 1 +'px';
+					star.style.height = h +'px';
+					star.style.animationDuration = duration + 's';
+
+					sence.appendChild(star);
+					i++;
+
+
+				}
+			}
+			stars();
+		</script>
+	</div>	
+</body>
+</html>

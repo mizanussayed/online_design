@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link href="https://fonts.googleapis.com/css2?family=Tangerine&display=swap" rel="stylesheet">
+	<title>Ramdan Karim</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+			font-family:'Tangerine', cursive;
+		}
+		body{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+		}
+		section{
+			position: relative;
+			width: 100%;
+			height: 100vh;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background: linear-gradient(#ffeb3b, #e91e63);
+		}
+		h2{ position: relative;
+			text-align: center;
+			font-size: 6em;
+			color: #fff;
+			text-shadow: 0 5px 10px rgba(0, 0, 0, .2)
+
+		}
+		h2 span{
+			font-size: 2rem;
+			font-family: sans-serif;
+		}
+		h2:before{
+			content: '';
+			position: absolute;
+			top: -44px;
+			left: -100px;
+			width: 200px;
+			height: 200px;
+			border-radius: 50%;
+			background: transparent;
+			border-left: 15px solid #fff;
+			transform: rotate(-30deg);
+			box-shadow: -14px 1px 10px rgba(0, 0, 0, .1);
+		}
+		.mosque{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 400px;
+			background:url(mosque.png);
+			background-repeat: repeat-x;
+			background-size: 1200px;
+			pointer-events: none;
+			z-index: 1;
+			animation: animate 10s linear infinite;
+
+		}
+		@keyframes animate{
+			0%{
+				background-position: 0px;
+			}
+			100%{
+			background-position: 1200px;
+			}
+		}
+			.mosque:before{
+			content: '';
+			position: absolute;
+			bottom: -100px;
+			left: 0;
+			width: 100%;
+			height: 600px;
+			background:url(mosque.png);
+			background-repeat: repeat-x;
+			background-size: 1200px;
+			pointer-events: none;
+			z-index: 1;
+			animation: animateRevers 40s linear infinite;
+			opacity: .1;
+
+		}
+		@keyframes animateRevers{
+			0%{
+				background-position: 1200px;
+			}
+			100%{
+			background-position:0 px;
+			}
+		}
+		.particles-ja-canvas-el{
+		
+		}
+		#particles-js > canvas{
+				position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	</style>
+</head>
+<body>
+	<section id="particles-js">
+		<div class="text">
+			<h2>Ramadan Mubarak <br><span>To You & Your Family</span></h2>
+		</div>
+		<div class="mosque"></div>
+	</section>
+	<script src="particles.js"></script>
+	<script src="app.js"></script>
+
+</body>
+</html>

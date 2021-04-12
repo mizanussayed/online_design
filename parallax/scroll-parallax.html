@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Scroll Parallax Effect</title>
+	<link rel="stylesheet" href="">
+	<style>
+		*{
+			padding: 0;
+			margin: 0;
+
+		}
+		body{
+			background: #0a2a43;
+			min-height: 1500px;
+		}
+		section{
+			position: relative;
+			width: 100%;
+			height: 100vh;
+			overflow: hidden;
+			justify-content: center;
+			align-items: center;
+			display: flex;
+		}
+		section:before{
+			content: '';
+			position: absolute;
+			bottom: 0;
+			width: 100%;
+			height: 100px;
+			background: linear-gradient(to top,  #0a2a43 , transparent);
+			z-index: 1000;
+		}
+			section:after{
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background:   #0a2a43;
+			z-index: 1000;
+			mix-blend-mode: color;
+		}
+		section  img{
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			pointer-events: none;
+		}
+		#text{
+			position: relative;
+			color: #fff;
+			font-size: 10em;
+			z-index: 1;
+			transition: 1s;
+		}
+		#road{
+			z-index:2;
+		}
+	</style>
+</head>
+<body>
+	<section>
+		<img src="bg.jpg" id="bg" >
+		<img src="moon.png" id="moon">
+		<img src="mountain.png" id="mountain">
+		<img src="road.png" id="road">
+		<h2 id="text">Moon Light </h2>
+	</section>
+	<script>
+		let bg =document.getElementById('bg');
+		let moon =document.getElementById('moon');
+		let mountain =document.getElementById('mountain');
+		let text =document.getElementById('text');
+
+		window.addEventListener("scroll", function(){
+			var value = window.scrollY;
+			 bg.style.top = value+ 0.5+"px";
+			 moon.style.left = -value+ 0.5+"px";
+			 mountain.style.top = -value+0.15+"px";
+			 road.style.top = value+ 0.15+"px";
+			 text.style.top = value+ 1+"px";
+		})
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Day Night change Sun And Moon</title>
+<style>
+	*{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+	}
+	.sence{
+		position: relative;
+		width: 100%;
+		height: 100vh;
+		background: linear-gradient(#111425, #3751e0);
+		background-attachment: fixed;
+		overflow: hidden;
+		animation: bgcolors 5s infinite;
+		z-index: 2;
+	}
+
+	@keyframes bgcolors {
+		10%{
+			background: green;
+			
+		}
+		20%{
+			background:orange;
+		}
+		100%{
+			background: linear-gradient(#111425, #3751e0);
+		}
+	}
+	/*.moon{
+		position: absolute;
+		top: 100px;
+		left: 400px;
+		width: 100px;
+		height: 100px;
+		border-radius:50%;
+		background: #fff;
+
+	}
+	.moon:after {
+		content: '';
+		position: absolute;
+		top: -15px;
+		left: 15px;
+		width: 100%;
+		height: 100%;
+		border-radius: 50%;
+		background: linear-gradient(#111425, #3751e0);
+		background-attachment: fixed;
+	}*/
+	.forest{
+		position: absolute;
+		width: 100%;
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		transform: scale(1.2);
+	}
+	.sence i{
+		position: absolute;
+		background: #fff;
+		border-radius: 50%;
+		animation: animate 2s linear infinite}
+	@keyframes animate {
+		0%{
+			opacity: 0;
+			transform: translateY(0);
+		}
+		10%, 90%{
+			opacity: 1;
+		}
+			100%{
+			opacity: 0;
+			transform: translateY(500px) rotateY(30deg);
+		}
+	}
+
+
+</style>
+</head>
+<body>
+	<div class="sence">
+		<div class="moon"></div>
+		<img src="forest.png" alt="Night" class="forest">
+		
+	</div>
+	<script type="text/javascript">
+		function stars(){
+			let count = 500;
+			let sence = document.querySelector(".sence");
+			let i = 0;
+			while( i < count) {
+				let star = document.createElement("i");
+				let x = Math.floor(Math.random() * window.innerWidth);
+				let y = Math.floor(Math.random() * window.innerHeight);
+				let duration = Math.random() * 10;
+				let size = Math.random() * 2;
+
+				star.style.left= x+'px';
+				star.style.top = - y+'px';
+				star.style.width = .5+size+'px';
+				star.style.height = 10+size+'px';  
+				
+				star.style.animationDuration = duration +'s';
+				star.style.animationDelay = duration +'s';
+
+ 				sence.appendChild(star);
+				i++;
+			}
+		}
+		stars();
+	</script>
+</body>
+</html>

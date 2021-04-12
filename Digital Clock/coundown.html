@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Coundown </title>
+</head>
+<style>
+	*{
+		padding: 0;
+		margin: 0;
+		box-sizing: border-box;
+		font-family: sans-serif;
+	}
+	body{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		min-height: 100vh;
+		background: #060a1f;
+	}
+	h2{
+		position: relative;
+		display: block;
+		color: #fff;
+		text-align: center;
+		margin-bottom: 10px;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: .4em;
+		font-size: .9em;
+	}
+	#time{
+		display: flex;
+	}
+	#time div{
+		position: relative;
+		margin:0 5px;
+	}
+	#time div span{
+		position: relative;
+		display: flex;
+		width: 100px;
+		height: 80px;
+		background: #2196f3;
+		color: #fff; 
+		justify-content: center;
+		align-items: center;
+		font-size: 3em;
+		z-index: 10;
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, .2);
+
+	}
+	#time div span:nth-child(2){
+		height: 30px;
+		font-size: .7em;
+		letter-spacing: .2em;
+		font-weight: 500;
+		z-index: 9;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		background: #127fd6;
+		text-transform: uppercase;
+
+	}
+	#time div:nth-last-child(2) span {
+		background: #ff006a;}
+		#time div:nth-last-child(2) span:nth-child(2){
+			background: #ec0062;
+		}
+
+		#time div:last-child span {
+			position: absolute;
+			bottom: 0;
+			height: 40px;
+			width: 60px;
+			font-size: 1em;
+			background: #fff;
+			color: #000;
+			-webkit-box-reflect:below 1px linear-gradient(transparent, #0004);
+
+		}
+		#time div{
+			-webkit-box-reflect:below 1px linear-gradient(transparent, #0004);
+		}
+	</style>
+	<body>
+		<div id="clock">
+			<h2>The time is now</h2>
+			<div id="time">
+				<div><span id="day">00</span><span>Days</span></div>
+				<div><span id="hours">00</span><span>Hours</span></div>
+				<div><span id="minutes">00</span><span>Minutes</span></div>
+				<div><span id="seconds">00</span></div>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var countDate = new Date('Jan 1, 2021 00:00:00').getTime();
+			
+			function newYear(){
+				var now = new Date().getTime();
+				var gap = countDate - now;
+				var second = 1000;
+				var minute = second * 60;
+				var hour = minute * 60;
+				var day = hour * 24;
+				
+				var d = Math.floor(gap / (day));
+				var h = Math.floor((gap % (day)) /(hour));
+				var m = Math.floor((gap % (hour)) /(minute));
+				var s = Math.floor((gap % (minute)) /(second));
+				
+				document.getElementById('day').innerText = d;
+				document.getElementById('hours').innerText = h;
+				document.getElementById('minutes').innerText = m;
+				document.getElementById('seconds').innerText = s;
+				if (gap < 0) {
+					clearInterval();
+					document.getElementById("hour").innerText= "EXPIRED";
+				}
+			}
+			setInterval(function(){
+				newYear();
+			});
+
+		</script>
+	</body>
+	</html>
